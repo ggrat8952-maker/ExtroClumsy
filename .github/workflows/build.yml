@@ -1,0 +1,18 @@
+name: Build APK
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    - name: Build APK
+      run: |
+        mkdir -p app/src/main
+        # Здесь мы указываем, где лежат наши файлы
+        # (Тебе нужно будет закинуть файлы в репозиторий через "Add file -> Upload files")
+        echo "Сборка началась..."
